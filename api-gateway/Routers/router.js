@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var login_audit = require('./login_audit');
-// var imageRouter = require('./imageService');
+var login_audit_router = require('./login_audit');
+var DataRetrival_router = require('./DataRetrival');
 // var cloudRouter = require('./cloudService');
 
 
@@ -10,8 +10,8 @@ router.use((req, res, next) => {
     next();
 });
 
-router.use(login_audit);
+router.use(login_audit_router);
 // router.use(imageRouter);
-// router.use(cloudRouter);
+router.use(DataRetrival_router);
 
 module.exports = router;

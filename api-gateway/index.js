@@ -1,12 +1,25 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-
+const cors=require('cors');
 var router = require('./routers/router');
 var config = require('./config');
 
-
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
 var app = express();
+
+app.use(cors(corsOpts));
 
 const { app: {port}} = config;
 

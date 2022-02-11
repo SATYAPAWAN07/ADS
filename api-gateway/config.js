@@ -1,3 +1,4 @@
+const { clear } = require("console");
 const { Module } = require("module");
 
 const config = {
@@ -14,7 +15,8 @@ const config = {
 
 	login_audit: "http:/localhost:8080/",
 
-	// data_retrival: "http://localhost:5000/"
+	DataRetrival: "http://localhost:5000/",
+	
 	}
 };
 

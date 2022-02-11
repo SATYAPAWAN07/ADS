@@ -17,19 +17,18 @@ import com.example.demo.model.RadarEntity;
 
 import com.example.demo.service.RadarDataService;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class RadarDataController {
 @Autowired
 private RadarDataService dataService;
 
-@CrossOrigin
+
 @GetMapping("/getData/{userName}/{page}")
 public List<RadarEntity> getData(@PathVariable String userName,int page)
 {
 	return dataService.getData(userName, page);
 }
-@CrossOrigin
 @PostMapping(path = "/saveRadar")
 public ResponseEntity saveRadar(@RequestBody RadarEntity radarData) {
 	

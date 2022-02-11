@@ -9,7 +9,8 @@ const { routeURLS: {login_audit}} = config;
 const api = apiAdapter(login_audit);
 
 router.get('/getData/:userName/:page', (req, res) => {
-    api.get(req.path).then(resp => {
+    
+    api.get(req.path,{Headers:{'Access-Control-Allow-Origin': '*',}}).then(resp => {
         res.send(resp.data);
     });
 });
@@ -21,13 +22,14 @@ router.post('/saveRadar', (req, res) => {
 });
 
 router.get('/root', (req, res) => {
-    api.get(req.path).then(resp => {
+    api.get(req.path,{Headers:{'Access-Control-Allow-Origin': '*',}}).then(resp => {
         res.send(resp.data);
     });
 });
 
 router.post('/root/save', (req, res) => {
-    api.post(req.path, req.body).then(resp => {
+    console.log("rootmsave ");
+    api.post(req.path, req.body,{Headers:{'Access-Control-Allow-Origin': '*',}}).then(resp => {
         res.send(resp.data);
     });
 });

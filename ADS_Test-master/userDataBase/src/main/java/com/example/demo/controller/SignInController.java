@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.User;
 import com.example.demo.service.SignInService;
 
-@CrossOrigin
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class SignInController {
 	
@@ -26,21 +27,22 @@ public class SignInController {
 		super();
 		this.inService = inService;
 	}
-	@CrossOrigin
+	
 	@GetMapping(path = "/root")
 	public String Hello() {
+		System.out.println("Hello world");
 		return "Hello world";
 		//this.inService.saveUser(user);
 	}
-	@CrossOrigin
+
 	@PostMapping(path = "/root/save")
 	public ResponseEntity saveUser(@RequestBody User user) {
-		
+		System.out.println("Recieved rrqu");
 		
 		this.inService.saveUser(user);
 		return ResponseEntity.ok(HttpStatus.OK);
 	}
-	@CrossOrigin
+	
 	@PostMapping(path = "/root/delete")
 	public ResponseEntity deleteUser(@RequestBody User user) {
 		
@@ -48,7 +50,7 @@ public class SignInController {
 		this.inService.deleteUser(user);
 		return ResponseEntity.ok(HttpStatus.OK);
 	}
-	@CrossOrigin
+
 	@PostMapping(path = "/root/auth")
 	public ResponseEntity auth(@RequestBody User user) {
 		
